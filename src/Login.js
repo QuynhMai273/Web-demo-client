@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [description, setDescription] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -13,8 +14,9 @@ const Login = () => {
                 username,
                 password,
             });
-            setDescription(response.data.description);
-            alert(`Welcome! Your description: ${response.data.description}`);
+            const description = response.data.description;
+            alert(`Welcome! Your description: ${description}`);
+            navigate(`/${username}`); // Navigate to the user profile page
         } catch (error) {
             console.error(error);
             alert('Login failed. Please check your credentials.');
@@ -45,7 +47,6 @@ const Login = () => {
                 </div>
                 <button type="submit">Login</button>
             </form>
-            {description && <p>{description}</p>}
         </div>
     );
 };
