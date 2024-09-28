@@ -22,12 +22,11 @@ const UserProfile = () => {
     }, [username]);
 
     const handleLogout = () => {
-        // Perform any necessary logout actions here (e.g., clearing tokens)
         navigate('/'); // Redirect to login page
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>User Profile</h2>
             <p>Welcome, {username}!</p>
             {description && <p>Description: {description}</p>}

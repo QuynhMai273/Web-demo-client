@@ -1,3 +1,4 @@
+import './style.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import Login from './Login';
@@ -15,9 +16,6 @@ const Header = () => {
     return (
         <div>
             <h1>Welcome to the User Portal</h1>
-            <Link to="/register">
-                <button>Register</button>
-            </Link>
         </div>
     );
 };
