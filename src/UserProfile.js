@@ -10,7 +10,7 @@ const UserProfile = () => {
     useEffect(() => {
         const fetchUserDescription = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/user/${username}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}user/${username}`);
                 setDescription(response.data.description);
             } catch (error) {
                 console.error(error);
